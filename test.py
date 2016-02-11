@@ -12,20 +12,6 @@ from io import StringIO
 from ast import literal_eval
 from functools import partial
 
-from kivy.lang import Builder
-
-
-##Builder.load_string('''
-##<GridLayout>
-##    canvas.before:
-##        BorderImage:
-##            # BorderImage behaves like the CSS BorderImage
-##            border: 10, 10, 10, 10
-##            source: 'grey-gradient-background.jpg'
-##            pos: self.pos
-##            size: self.size
-##            ''')
-
 class GUImporterApp(App):
     def build(self):
         self.layout = GridLayout(cols=2,row_force_default=True, row_default_height=40)
@@ -45,29 +31,29 @@ class GUImporterApp(App):
         #self.layout.add_widget(l3)
         #self.txt1.bind(text = self.importdatfile)
         #self.txt1.bind(text = l3.setter('text'))
-#        self.txt1.bind(text=partial(self.importdatfile,self))
+        self.txt1.bind(text=partial(self.importdatfile,self))
 ##      
         
         return self.layout
 
-##    def importdatfile(self,*args):
-##        Rows = self.txt1.text
-##        Cols = self.txt2.text
-##        l = literal_eval(Cols)
-##        #print(l)
-##        x = numpy.loadtxt('ET.csv',
-##                      comments='#',
-##                      delimiter=',',
-##                      converters=None,
-##                      skiprows=int(float(Rows)),
-##                      usecols=l,
-##                      unpack=False,
-##                      ndmin=0)
-##        x2 = " ".join("\t".join(map(str,l)) for l in x)
-##        print(type(x2))
-##        l3 = Label(text=x2)
-##        self.layout.add_widget(l3)
-##        print(x2)
+    def importdatfile(self,*args):
+        Rows = self.txt1.text
+        Cols = self.txt2.text
+        l = literal_eval(Cols)
+        #print(l)
+        x = numpy.loadtxt('ET.csv',
+                      comments='#',
+                      delimiter=',',
+                      converters=None,
+                      skiprows=int(float(Rows)),
+                      usecols=l,
+                      unpack=False,
+                      ndmin=0)
+        x2 = " ".join("\t".join(map(str,l)) for l in x)
+        print(type(x2))
+        l3 = Label(text=x2)
+        self.layout.add_widget(l3)
+        print(x2)
         
 
     def buttonClicked(self,btn):
@@ -83,12 +69,12 @@ class GUImporterApp(App):
                       skiprows=int(float(Rows)),
                       usecols=l,
                       unpack=False,
-                      ndmin=2)
+                      ndmin=0)
         print(x)
-        numpy.savetxt('VT.csv',
+        numpy.savetxt('VT.txt',
                       x,
-                      fmt='%d',
-                      delimiter=',',
+                      fmt='%.18e',
+                      delimiter=' ',
                       newline='\r\n',
                       header='',
                       footer='',
