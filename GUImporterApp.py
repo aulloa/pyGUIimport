@@ -30,7 +30,7 @@ class GUImporterApp(App):
     def build(self):
         self.layout = GridLayout(cols=2,row_force_default=True, row_default_height=40)
         l  = Label(text='Start Row')
-        l2 = Label(text='Columns (Comma Separated)')
+        l2 = Label(text='Columns(Comma Seperated)')
         self.layout.add_widget(l)
         self.layout.add_widget(l2)
         self.txt1 = TextInput(text='0', multiline=False)
@@ -40,8 +40,7 @@ class GUImporterApp(App):
         btn1 = Button(text="RUN")
         btn1.bind(on_press=self.buttonClicked)
         self.layout.add_widget(btn1)
-        btn1.background_color = 73.7/255,89.4/255,59.6/255,1
-        btn1.background_normal = 'forg.JPG'
+
         #l3 = Label(text='Data File')
         #self.layout.add_widget(l3)
         #self.txt1.bind(text = self.importdatfile)
