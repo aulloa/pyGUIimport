@@ -6,7 +6,7 @@
 
 	- ![](https://raw.githubusercontent.com/aulloa/pyGUIimport/master/Before.JPG)
 
-	- - ![](https://raw.githubusercontent.com/aulloa/pyGUIimport/master/Click.JPG)
+	- ![](https://raw.githubusercontent.com/aulloa/pyGUIimport/master/Click.JPG)
 
     - ![](https://raw.githubusercontent.com/aulloa/pyGUIimport/master/After.JPG)
 
