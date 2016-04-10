@@ -1,4 +1,5 @@
 ## PyGUIimport
+###### Andres Ulloa, Alyssa Smith
 
 ### GUI
  - PyGUIimport operates by editing text or spreadsheet files formatted in columns and rows, cropping to important data and allowing you to save a new edited data text file or load cropped data into a python application.
